@@ -1,0 +1,28 @@
+resources:
+  jobs:
+    practice_job:
+      name: practice_job
+
+      trigger:
+        file_arrival:
+          url : ${var.volume_path}
+      
+      email_notifications:
+        on_failure:
+          - ivan.sandiumenge@lovelytics.com
+      
+      tasks:
+        - task_key: task_1
+          notebook_task:
+            notebook_path: ../src/create_table.ipynb
+        - task_key: run_pipeline
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.etl_pipeline.id}
+          depends_on:
+            - task_key: task_1
+                  
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}

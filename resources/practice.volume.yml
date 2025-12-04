@@ -1,0 +1,6 @@
+resources:
+  volumes:
+    practice_volume:
+      name: practice_volume
+      catalog_name: ${var.catalog}
+      schema_name: ${var.schema}
