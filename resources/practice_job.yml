@@ -14,7 +14,7 @@ resources:
       tasks:
         - task_key: task_1
           notebook_task:
-            notebook_path: ../src/create_table.ipynb
+            notebook_path: ../src/create_table.py
         - task_key: run_pipeline
           pipeline_task:
             pipeline_id: ${resources.pipelines.etl_pipeline.id}
