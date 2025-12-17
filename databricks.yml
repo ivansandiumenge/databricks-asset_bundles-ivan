@@ -42,11 +42,10 @@ targets:
       root_path: /Workspace/dab-practice/${workspace.current_user.short_name}/${bundle.target}/.bundle
     presets:
       name_prefix: "[prod ${workspace.current_user.short_name}] "
+      trigger_pause_status: UNPAUSED
     resources:
       jobs:
         practice_job:
-          trigger:
-            pause_status: "UNPAUSED"
           email_notifications:
             on_success:
               - nicolas.mauvecin@lovelytics.com
